@@ -47,10 +47,7 @@ def get_euro_try_rates(first_day_formatted, last_day_formatted):
         data = response.json()['items']
         rate_check = data[0]['TP_DK_EUR_A_YTL']
         if rate_check==None:
-            date_initial = datetime.strptime(data[0]['Tarih'], "%d-%m-%Y")
-            date_day_before = date_initial - timedelta(days=1)
-            date_day_before_str = date_day_before.strftime("%d-%m-%Y")
-            data[0]['TP_DK_EUR_A_YTL']=get_euro_try_rate_daily(date_day_before_str)
+            data[0]['TP_DK_EUR_A_YTL']=get_euro_try_rate_daily(data[0]['Tarih'])
         else:
             pass # do nothing
         dataset = [{'date': item['Tarih'], 'buying_rate': item['TP_DK_EUR_A_YTL']} for item in data]
