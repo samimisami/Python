@@ -2,14 +2,15 @@ import creds
 import requests
 from datetime import datetime, timedelta
 
+# Adding headers with API key
+headers = {
+    'key': creds.api_key  # Adjust according to your API specification
+}
+
 def get_euro_try_rate_daily(day):
     #      https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.EUR.A.YTL&type=json&startDate=01-01-2024&endDate=01-02-2024
     url = "https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.EUR.A.YTL&type=json&startDate="+day+"&endDate="+day
 
-    # Adding headers with API key
-    headers = {
-        'key': creds.api_key  # Adjust according to your API specification
-    }
     # Sending the request to the API
     response = requests.get(url, headers=headers)
 
@@ -30,14 +31,9 @@ def get_euro_try_rate_daily(day):
         return None
 
 def get_euro_try_rates(first_day_formatted, last_day_formatted):
-    # EVDS API endpoint
     #      https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.EUR.A.YTL&type=json&startDate=01-01-2024&endDate=01-02-2024
     url = "https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.EUR.A.YTL&type=json&startDate="+first_day_formatted+"&endDate="+last_day_formatted
     
-    # Adding headers with API key
-    headers = {
-        'key': creds.api_key  # Adjust according to your API specification
-    }
     # Sending the request to the API
     response = requests.get(url, headers=headers)
     

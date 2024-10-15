@@ -137,5 +137,3 @@ if dataset:
 
         # Save to Excel
     df.to_excel('TEST'+'_EUR-TRY.xlsx', index=False)
-
-# Açılış değerleri alınıyor, kapanış alınması için düzelt
