@@ -14,3 +14,8 @@ then spoofing headers > https://www.scrapethissite.com/pages/advanced/
 then login & session data
 then CSRF & Hidden Values
 """
+
+
+"""
+then in a new project analyse these data
+"""
